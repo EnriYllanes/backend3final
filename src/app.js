@@ -17,10 +17,10 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const swaggerDocument = YAML.load('./src/docs/adoptme.yaml');
 
-// conexión a Mongo
-mongoose.connect(process.env.MONGO_URI)
+// conexión a Mongo - CAMBIADO DE MONGO_URI A MONGO_URL
+mongoose.connect(process.env.MONGO_URL) 
   .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error(err));
+  .catch(err => console.error("Error connecting to Mongo:", err));
 
 app.use(express.json());
 app.use(cookieParser());
